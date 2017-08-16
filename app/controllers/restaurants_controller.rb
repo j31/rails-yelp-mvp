@@ -8,11 +8,11 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant
+    @review = Review.new
   end
 
   def new
     @restaurant = Restaurant.new
-    @restaurant.save
   end
 
   def create
@@ -37,7 +37,7 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @restaurant.destroy
     redirect_to restaurants_path
   end
