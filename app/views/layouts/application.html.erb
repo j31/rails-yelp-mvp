@@ -13,17 +13,25 @@
 </head>
 
 <body>
+
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+
   <div class="container">
+    <%= link_to "MyYelp", restaurants_path, class: 'navbar-brand' %>
+  </div>
+</nav>
 
+<div class="container">
 
-  <nav class="navbar navbar-default">
-     <div class="container">
-      <%= link_to "MyYelp", restaurants_path, class: 'navbar-brand' %>
-    </div>
-  </nav>
+<%= yield %>
 
-
-  <%= yield %>
 </div>
+
+<div class="yelp-footer text-center text-sm">
+    <p><i class="fa fa-copyright"></i> MyYelp
+</div>
+
+
+
 </body>
 </html>

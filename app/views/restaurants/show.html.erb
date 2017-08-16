@@ -10,7 +10,17 @@
 
 <ul>
 <% @restaurant.reviews.each do |r| %>
-  <li><%= r.content %></li>
+  <li>
+    <% r.rating.times do %>
+      <i class="fa fa-star"></i>
+    <% end %>
+
+    <% (5 - r.rating).times do %>
+      <i class="fa fa-star-o"></i>
+    <% end %>
+
+      <%= r.content %>
+  </li>
 <% end %>
 </ul>
 

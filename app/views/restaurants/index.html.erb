@@ -1,14 +1,34 @@
 <h1>Restaurants</h1>
 
 <ul>
+
+
   <% @restaurants.each do |r| %>
-  <li>
-    <%= link_to r.name, restaurant_path(r.id) %>
-  </li>
+    <% @tot_rating = 0 %>
+    <% r.reviews.each do |rev| %>
+      <% @tot_rating += rev.rating %>
+
+    <% end %>
+    <% @tot_rating = @tot_rating %>
+    <% @ave_rating = @tot_rating / r.reviews.length %>
+    <li>
+
+    <% @ave_rating.times do %>
+      <i class="fa fa-star"></i>
+    <% end %>
+
+    <% (5 - @ave_rating).times do %>
+      <i class="fa fa-star-o"></i>
+    <% end %>
+
+      <%= link_to r.name, restaurant_path(r.id) %>
+      </%>
+    </li>
   <% end %>
 </ul>
 
 <br><br>
 
-<%= link_to "New Restaurant", new_restaurant_path  %>
+<%= link_to "New Restaurant", new_restaurant_path %>
+
 
